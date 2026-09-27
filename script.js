@@ -9,8 +9,8 @@ document.addEventListener('DOMContentLoaded', () => {
   if (yearEl) yearEl.textContent = new Date().getFullYear();
 
   /* ---------- WhatsApp / phone numbers — EDIT THESE ---------- */
-  const WHATSAPP_NUMBER = '8421565751'; // country code + number, no + or spaces
-  const OWNER_PHONE_DISPLAY = '+91 8421565751';
+  const WHATSAPP_NUMBER = '9890864657'; // country code + number, no + or spaces
+  const OWNER_PHONE_DISPLAY = '+91 9890864657';
 
   /* ---------- scroll-driven sunrise: sun rises as you scroll the page ---------- */
   const sun = document.querySelector('.sun');
