@@ -59,3 +59,24 @@
     addEventListener('pointermove', e => { g.style.left = e.clientX + 'px'; g.style.top = e.clientY + 'px'; });
   }
 })();
+
+
+(() => {
+  const y = document.getElementById('year');
+  if (y) y.textContent = new Date().getFullYear();
+
+  document.querySelectorAll('[data-count]').forEach((el) => {
+    const target = +el.dataset.count;
+    const io = new IntersectionObserver(([e]) => {
+      if (!e.isIntersecting) return;
+      io.disconnect();
+      const start = performance.now();
+      (function tick(now) {
+        const p = Math.min((now - start) / 1400, 1);
+        el.textContent = Math.round((1 - Math.pow(1 - p, 3)) * target);
+        if (p < 1) requestAnimationFrame(tick);
+      })(start);
+    }, { threshold: 0.4 });
+    io.observe(el);
+  });
+})();
